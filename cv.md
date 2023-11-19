@@ -40,50 +40,34 @@ I don't have any problems to elaborate my thoughts or opinions, but I know that 
 
 ### Code examples
 ```
-$( document ).ready(function() {
-	$('.xdget-trainingList .stream-table tr a' ).append(`<div class='progress-block'> <div class='progress_name'> Прогресс: </div><div class='theory_module-status'> 0%	</div></div>`);
+let needed_val = $('#field-input-1538173').val();
+  $('.user-phone').after(`<div class="addition_filed_custom"></div>`);  
+  $('.addition_filed_custom').text('Значение из поля: ' + needed_val);
+let ajax_content = '';
 
+let user_link = $('.user-name a:first-child').attr('href');
+  
+let get_field = function(user_link, needed_val) {
+$.ajax({
+  method: "Get",
+  url: user_link,    
+  beforeSend: function(jqXHR, settings) {
+        // Проверить ссылку, по которой перехожу
+        console.log("Request URL:", settings.url);
+    },
+  success: function(data) {
+  setTimeout(function () { console.log("Howdy!") }, 1000);
+    var menuPageDom = $('<xxx></xxx>').append($.parseHTML(data));    
+    if ( menuPageDom.find('#field-input-1538173').length > 0) {
+    console.log("Поле нашлось");
+    let test = menuPageDom.find('#field-input-1538173').val();
+    console.log("test: " + test);
+      }
+    ajax_content = $.parseHTML(data);
+    }
+  });
+};  
 
-let modules = $('.stream-table > tbody > tr');
-let training_links = [];
-
-modules.each(function() {
-    training_links.push($(this).find('a').attr('href'));
-});
-
-let get_status = function(url, module) {
-    $.ajax({
-        method: "Get",
-		url: url,		
-		success: function(data) {
-			var menuPageDom = $('<xxx></xxx>').append($.parseHTML(data));
-							
-			if ((!$(module).hasClass('no-lessons'))) {
-			
-			let total_lessons_module = menuPageDom.find('.lesson-list li:not(".divider"):not(".lesson-is-hidden")').length;				
-			let passed_lessons_module = menuPageDom.find('.lesson-list li.user-state-accomplished').length;
-			
-			console.log("passed_lessons_module: "+passed_lessons_module);
-
-
-			if (passed_lessons_module == total_lessons_module) {
-				$(module).addClass('done');				
-				$(module).find('.theory_module-status').text('Пройдено 100%');
-			} else {
-				$(module).addClass('active');
-				let progress_module = parseInt(passed_lessons_module * 100 / total_lessons_module);
-				$(module).find('.theory_module-status').text( progress_module + '%');
-			}
-			} 			
-			}
-		});
-};
-
-for(let i = 0; i < training_links.length; i++) {
-    get_status(training_links[i], modules[i]);
-}
-
-});
-
+get_field(user_link, needed_val);
 
 ```
