@@ -35,4 +35,40 @@ Maybe to combine python as a backend part and frontend part of application.
 ### English
 According to EPAM test I have C1, however I would rather grade it as B2.
 In all of my previous jobs I had to use English every day: in communication with customers and the team.
-I don't have any problems to elaborate my thoughts or opinions, but I know that I can improve my grammar skills. 
+I don't have any problems to elaborate my thoughts or opinions, but I know that I can improve my grammar skills.
+
+
+
+### Code examples
+```
+let needed_val = $('#field-input-1538173').val();
+  $('.user-phone').after(`<div class="addition_filed_custom"></div>`);  
+  $('.addition_filed_custom').text('Значение из поля: ' + needed_val);
+let ajax_content = '';
+
+let user_link = $('.user-name a:first-child').attr('href');
+  
+let get_field = function(user_link, needed_val) {
+$.ajax({
+  method: "Get",
+  url: user_link,    
+  beforeSend: function(jqXHR, settings) {
+        // Проверить ссылку, по которой перехожу
+        console.log("Request URL:", settings.url);
+    },
+  success: function(data) {
+  setTimeout(function () { console.log("Howdy!") }, 1000);
+    var menuPageDom = $('<xxx></xxx>').append($.parseHTML(data));    
+    if ( menuPageDom.find('#field-input-1538173').length > 0) {
+    console.log("Поле нашлось");
+    let test = menuPageDom.find('#field-input-1538173').val();
+    console.log("test: " + test);
+      }
+    ajax_content = $.parseHTML(data);
+    }
+  });
+};  
+
+get_field(user_link, needed_val);
+
+```
