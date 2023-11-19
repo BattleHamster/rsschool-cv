@@ -32,6 +32,12 @@ Maybe to combine python as a backend part and frontend part of application.
 2. Bachelor Degree at Information Technologies (2012-2015);
    University of Maria Curie-Skłodowska in Lublin
 
+### English
+According to EPAM test I have C1, however I would rather grade it as B2. 
+In all of my previous jobs I had to use English every day: in communication with customers and the team. 
+I don't have any problems to elaborate my thoughts or opinions, but I know that I can improve my grammar skills. 
+
+
 ### Code examples
 ```
 $( document ).ready(function() {
