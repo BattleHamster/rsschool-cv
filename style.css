@@ -1,0 +1,28 @@
+.horizontal-centered-block {
+    margin: 0 auto;
+}
+
+footer {
+display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    }
+
+footer img {
+height: 50px;
+}
+
+.github a,
+.school a {
+    display: flex;
+    align-items: center;
+    }
+
+.today-date {
+max-width: 120px}
+
+footer div {
+margin: 10px 20px;
+}
