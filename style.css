@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
+
+.horizontal-centered-block {
+    margin: 0 auto;
+    max-width: 50%;
+}
+
+.title-block {
+    text-align: center;}
+
+h1, h2 {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+h3 {
+    margin-bottom: 0px;
+    margin-top: 20px;}
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.summary-block {
+    text-align: left;
+}
+
+code {
+    font-family: 'Noto Sans Mono', monospace;
+
+}
+pre {
+    background: aliceblue;
+    padding: 20px;
+
+}
+footer {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+footer img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.github a,
+.school a {
+    display: flex;
+    align-items: center;
+}
+
+.today-date {
+    max-width: 120px;
+    text-align: center;}
+
+footer div {
+    margin: 10px 20px;
+}
